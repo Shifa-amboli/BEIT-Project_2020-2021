@@ -1,4 +1,11 @@
-﻿
+﻿<?php
+session_start();
+if(isset($_SESSION['reset']))
+{
+	
+} else
+  header("location: Forgot Password.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -33,44 +40,29 @@
 	          <div class="square"></div>
 	          <h1>Reset Password</h1>
 	        </header>
-	        <form action="rs.php" class="templatemo-login-form" method="POST">
-			<div class="form-group">
+	        <form action="rs1.php" class="templatemo-login-form" method="POST" enctype="multipart/form-data">
+				<div class="form-group">
 	        		<div class="input-group">
-		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
+		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
 		              	<input type="text" name="USN" class="form-control" placeholder="Username" >           
 		          	</div>	
 	        	</div>
 	        	<div class="form-group">
 	        		<div class="input-group">
-		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<select type="text" name="Question" class="form-control" placeholder="Security Question" > 
-								<option value="What is your nickname?">What is your nickname?</option>
-								<option value="What is your fav spot?">What is your fav spot?</option>
-							<option value="What is your fav dish?">What is your fav dish?</option>
-							<option value="What is your dream land address?">What is your dream land address?</option>							
-		          	<option value="What is your first mobile number?">What is your first mobile number?</option>	
-						<option value="What is your one truth which ohers donot know?">What is your one truth which ohers donot know?</option>
-								<option value="What is your detained years in life?">What is your detained years in life?</option>
-						<option value="What is your enemy name?">What is your enemy name?</option>
-						<option value="What is your pet's name?">What is your pet's name?</option>
-					</div>	
-	        	</div>
-				<div class="form-group">
-	        		<div class="input-group">
-		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<input type="text" name="Answer" class="form-control" placeholder="Answer" >           
+		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
+		              	<input type="password" name="PASSWORD" class="form-control" placeholder="New Password" >           
 		          	</div>	
 	        	</div>
 				<div class="form-group">
-					<button type="submit" class="templatemo-blue-button width-100">Send Request</button>
+	        		<div class="input-group">
+		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
+		              	<input type="password" name="repassword" class="form-control" placeholder="Retype Password" >           
+		          	</div>	
+				</div>
+				<div class="form-group">
+					<button type="submit" class="templatemo-blue-button width-100">Reset Password</button>
 				</div>
 	        </form>
-		</div>
-		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>Not a registered user yet? <strong><a href="register.php" class="blue-text">Sign up now!</a></strong></p>
-		</div>
-        <div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>Remembered Password? <strong><a href="index.php" class="blue-text">Sign in!</a></strong></p>
 		</div>
 		
 			<!--footer-->
@@ -89,14 +81,33 @@
 							<a href="../PProfile/login.php">Placement Login</a>
 						</li>
 						<li>
-							<a href="../HODProfile/login.php">Faculty Login</a>
+							<a href="../HODProfile/login.php">HOD Login</a>
 						</li>
 						<li>
 							<a href="../PriProfile/login.php">Administrative Login</a>
 						</li>
 					</ul>
 				</div>
-				
+				<div class="col-md-3 ftr_navi ftr">
+					<h3>MEMBERS</h3>
+					<ul>
+						<li>
+							<a href="#">Customer Support</a>
+						</li>
+						<li>
+							<a href="#">Placement Support</a>
+						</li>
+						<li>
+							<a href="#">Faculty Support</a>
+						</li>
+						<li>
+							<a href="#">Registered Companies</a>
+						</li>
+						<li>
+							<a href="#">Training</a>
+						</li>
+					</ul>
+				</div>
 				<div class="col-md-3 get_in_touch ftr">
 					<h3>GET IN TOUCH</h3>
 					<p>Address: Survey No. 12, 13</p>

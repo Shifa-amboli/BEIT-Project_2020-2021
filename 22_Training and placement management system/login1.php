@@ -1,14 +1,16 @@
 <?php
 	session_start();
-	$username = $_POST['username'];
-	$password  = $_POST['password'];
+	$branch = ($_POST['Branch']);
+	$husername = ($_POST['username']);
+	$password  = ($_POST['password']);
 	
-	if ($username&&$password)
+	
+	if ($husername&&$password&&$branch)
 	{
 		$connect = mysql_connect("localhost","root","") or die("Couldn't Connect");
 		mysql_select_db("details") or die("Cant find DB");
 		
-		$query = mysql_query("SELECT * FROM slogin WHERE USN='$username'");
+		$query = mysql_query("SELECT * FROM hlogin WHERE Username='$husername'");
 		
 		$numrows = mysql_num_rows($query);
 		
@@ -16,25 +18,31 @@
 		{
 			while($row = mysql_fetch_assoc($query))
 			{
-				$dbusername = $row['USN'];
-				$dbpassword = $row['PASSWORD'];
+				$dbbranch = $row['Branch'];
+				$dbusername = $row['Username'];
+				$dbpassword = $row['Password'];
 				
 			}
-			if ($username==$dbusername&& $password==$dbpassword)
+			if ($branch==$dbbranch&&$husername==$dbusername&&$password==$dbpassword)
 			{
 				  echo "<center>Login Successfull..!! <br/>Redirecting you to HomePage! </br>If not Goto <a href='index.php'> Here </a></center>";
 			  echo "<meta http-equiv='refresh' content ='3; url=index.php'>";
-				$_SESSION['username'] = $username;
-				//$_SESSION['Name'] = mysql_query("SELECT Name FROM slogin WHERE USN='$username'");
-			} else{
-				$message = "Username and/or Password incorrect.";
+				$_SESSION['husername'] = $husername;
+				$_SESSION['department'] = $branch;
+			} 
+			else {
+				$message = "Username and/or Password and/or Department are/is incorrect.";
   			echo "<script type='text/javascript'>alert('$message');</script>";
 			  echo "<center>Redirecting you back to Login Page! If not Goto <a href='index.php'> Here </a></center>";
 			  echo "<meta http-equiv='refresh' content ='1; url=index.php'>";
 			}
-		}else
-			die("User not exist");
+			  } else
+			   die("User not exist");
 	}
-	else
-	die("Please enter USN and Password");
-	?>
+	else {
+	$message = "Feild Can't be Left Blank";
+  			echo "<script type='text/javascript'>alert('$message');</script>";
+			  echo "<center>Redirecting you back to Login Page! If not Goto <a href='index.php'> Here </a></center>";
+			  echo "<meta http-equiv='refresh' content ='1; url=index.php'>";
+			  }
+		?>

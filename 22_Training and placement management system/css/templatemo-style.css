@@ -11,7 +11,6 @@ TABLE OF CONTENT
 ----------------------------------------------*/
 /* 1. Universal Styles
 ----------------------------------------------*/
-.error {color: #FF0000;}
 * {	font-family: 'Open Sans', sans-serif; }
 body {	font-size: 13px; }
 body, .templatemo-left-nav { background: #1f2124; }
@@ -47,6 +46,14 @@ nav li {
 .white-bg .fa-times:hover {	background: #83ccd1; }
 .orange-bg {
 	background-color: #F17A54;
+	color: white;
+}
+.Bluegrey-bg {
+	background-color: #90CAF9;
+	color: white;
+}
+.Bluegrey1-bg {
+	background-color: #BBDEFB;
 	color: white;
 }
 .orange-bg .fa-times {	background-color: #F0A790; }

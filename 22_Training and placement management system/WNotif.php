@@ -1,24 +1,30 @@
 <?php
   session_start();
-  if($_SESSION["husername"]){
+ if (($_SESSION['husername'])){
+    
   }
    else {
 	   header("location: index.php");
-  }
+   die("You must be Log in to view this page <a href='index.php'>Click here</a>");}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!--favicon-->
         <link rel="shortcut icon" href="favicon.ico" type="image/icon">
-        <link rel="icon" href="favicon.ico" type="image/icon">
+        <link rel="icon" href="favicon.ico" type="image/icon">	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HOD - Change Password</title>
+    <title>HOD - Preferences</title>
     <meta name="description" content="">
     <meta name="author" content="templatemo">
-    
+    <!-- 
+    Visual Admin Template
+    http://www.templatemo.com/preview/templatemo_455_visual_admin
+    -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -38,13 +44,18 @@
       <div class="templatemo-sidebar">
         <header class="templatemo-site-header">
           <div class="square"></div>
-<?php
-		  $Welcome = "Ahoj!!";
+          <?php
+		  $Welcome = "Welcome";
           echo "<h1>" . $Welcome . "<br>". $_SESSION['husername']. "</h1>";
+		  echo "<h1>(</h1>";
+		    echo "<h1>" . $_SESSION['department']. "</h1>";   
+            echo "<h1>)</h1>";
 		  ?>
         </header>
         <div class="profile-photo-container">
-          <img src="images/profile-photo.jpg" alt="Profile Photo" class="img-responsive">
+          <img src="images/profile-photo.jpg" GET IN TOUCH
+
+NH4, Heruralt="Profile Photo" class="img-responsive">
           <div class="profile-photo-overlay"></div>
         </div>
         <!-- Search box -->
@@ -58,62 +69,64 @@
             <i class="fa fa-bars"></i>
           </div>
         <nav class="templatemo-left-nav">
-        <ul>
-            <li><a href="login.php"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>    
+          <ul>
+            <li><a href="login.php"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>           
             <li><a href="manage-student.php"><i class="fa fa-users fa-fw"></i>Manage Students</a></li>
             <li><a href="preferences.php"><i class="fa fa-sliders fa-fw"></i>Preferences</a></li>
             <li><a href="logout.php"><i class="fa fa-eject fa-fw"></i>Sign Out</a></li>
-          </ul>  
+          </ul>
         </nav>
       </div>
-      <!-- Main content --> 
+      <!-- Main content -->
       <div class="templatemo-content col-1 light-gray-bg">
         <div class="templatemo-top-nav-container">
           <div class="row">
             <nav class="templatemo-top-nav col-lg-12 col-md-12">
               <ul class="text-uppercase">
-                <li><a href="../../Homepage/index.php">Home APSIT-PMS</a></li>
-                <li><a href="../../Drives/index.php">Drives</a></li>
-    <li><a href="Notif.php">Notification</a></li>
-	<li><a href="Change Password.php" class="active">Change Password</a></li>
+                  <li><a href="../../Homepage/index.php">Home APSIT-PMS</a></li>
+                <li><a href="../../Drives/index.php">Drives Home</a></li>
+                 <li><a href="Notif.php">Notification</a></li>
+                <li><a href="Change Password.php">Change Password</a></li>
               </ul>
             </nav>
           </div>
         </div>
         <div class="templatemo-content-container">
           <div class="templatemo-content-widget white-bg">
-            <h2 class="margin-bottom-10">Change it with a Click</h2>
-            <p>Change your Login Credentials</p>
-            <form action="cp.php" class="templatemo-login-form" method="POST" enctype="multipart/form-data">
+            <h2 class="margin-bottom-10">Write Messages</h2>
+            <p>Department Notifications to Students</p>
+            <form action="WN.php" method="POST">
               <div class="row form-group">
-                
-              <div class="row form-group">
-                <div class="col-lg-6 col-md-6 form-group">                  
-                    <label for="inputCurrentPassword">Current Password</label>
-                    <input type="password" class="form-control highlight" id="inputCurrentPassword" placeholder="*******" name="curpassword">                  
-                </div>                
-              </div>
-              <div class="row form-group">
-                <div class="col-lg-6 col-md-6 form-group">                  
-                    <label for="inputNewPassword">New Password</label>
-                    <input type="password" class="form-control" id="inputNewPassword" name="Password">
+                <div class="col-lg-12 form-group">                   
+                    <label class="control-label" for="inputNote">Subject:</label>
+                    <textarea class="form-control" id="inputNote" rows="2"></textarea>
                 </div>
-                <div class="col-lg-6 col-md-6 form-group">                  
-                    <label for="inputConfirmNewPassword">Confirm New Password</label>
-                    <input type="password" class="form-control" id="inputConfirmNewPassword" name="repassword">
-                </div> 
-              
               </div>
+              <div class="row form-group">
+                <div class="col-lg-12 form-group">                   
+                    <label class="control-label" for="inputNote">Message:</label>
+                    <textarea class="form-control" id="inputNote" rows="5"></textarea>
+                </div>
+              </div>
+			      
+             
               <div class="form-group text-right">
-                <button type="submit" class="templatemo-blue-button">Update</button>
-                <button type="reset" class="templatemo-white-button">Reset</button>
-              </div>                           
+                <button type="submit" class="templatemo-blue-button">POST</button>
+                <button type="reset" class="templatemo-white-button">Clear</button>
+              </div>  
+
+
+<center><label class="control-label" for="inputNote"><center><h2>OR</h2></center> <br/> <br/>To Upload an Image Click the Link below:</label><br/>
+			   <br/>
+			   <a href="upload.html" class="templatemo-blue-button">Post an Image</a></center>				  
             </form>
           </div>
+		  
+
           <footer class="text-right">
-            <p>Copyright &copy; 2021 APSIT-PMS
-            | Developed by <a href="" target="_parent">Information Technologies</a></p>
-          </footer>       
+           <p>Copyright &copy; 2021 APSIT-PMS | Developed by
+              <a href="" target="_parent">Information Technologies</a>
+          </footer>
         </div>
       </div>
     </div>
